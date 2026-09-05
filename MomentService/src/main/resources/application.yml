@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: MomentService
+  cloud:
+    nacos:
+      server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:18375}
+      username: ${NACOS_USERNAME:}
+      password: ${NACOS_PASSWORD:}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:49152/infiniteChat?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    hikari:
+      # 设置最大连接池大小
+      maximum-pool-size: 30
+      # 设置最小空闲连接数
+      minimum-idle: 10
+      # 设置连接池初始化失败时的超时时间
+      initialization-fail-timeout: 10000
+      # 设置连接池的最大空闲时间
+      idle-timeout: 30000
+      # 设置连接池中连接的最大生命周期
+      max-lifetime: 60000
+      # 设置连接池的连接超时时间
+      connection-timeout: 30000
+      # 设置连接池的最大等待时间
+      validation-timeout: 3000
+      # 配置连接池验证SQL（根据数据库选择合适的SQL）
+      connection-test-query: SELECT 1
+      # 设置连接池的池化管理名称
+      pool-name: HikariCP
+  jmx:
+    enabled: true
+  redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:59000}
+    password: ${REDIS_PASSWORD:}
+server:
+  tomcat:
+    connection-timeout: 60000
+  port: 8086
+logging:
+  level:
+    com.shanyangcode.infinitechat.momentservice.mapper : debug
