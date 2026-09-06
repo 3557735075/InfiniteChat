@@ -1,0 +1,22 @@
+# Build output
+target/
+**/target/
+
+# IDE and local tooling
+.idea/
+*.iml
+.vscode/
+*.iws
+*.ipr
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary repository metadata used for publishing from this workspace
+.git-upload/
